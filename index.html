@@ -1,0 +1,104 @@
+<html>
+<head>
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script src="//d3js.org/topojson.v1.min.js"></script>
+	<script src="datamaps.usa.min.js"></script>
+	<title></title>
+</head>
+<body>
+<div id="container" style="position: relative; width: 650px; height: 300px;"></div>
+<script>
+	var map = new Datamap({
+
+		element: document.getElementById('container'),
+		scope: 'usa',
+		fills: {
+			defaultFill: 'steelblue',
+			1: '#eff3ff',
+			2: '#bdd7e7',
+			3: '#6baed6',
+			4: '#2171b5'
+		},
+		geographyConfig: {
+			popupTemplate: function(geo, data) {
+				return ['<div class="hoverinfo"><strong>',
+				'<p>' + geo.properties.name + '</p>',
+				'<p>LCAs: ' + data.LCAs + '</p>',
+				'</strong></div>'].join('');
+			},
+			borderColor: 'gray'
+
+		},
+
+		data: 
+
+			{
+			  "AK": { "LCAs":259, "fillKey":1},
+			  "AL": { "LCAs":1486, "fillKey":1},
+			  "AR": { "LCAs":2440, "fillKey":1},
+			  "AZ": { "LCAs":6381, "fillKey":2},
+			  "CA": { "LCAs":83794, "fillKey":4},
+			  "CO": { "LCAs":4888, "fillKey":2},
+			  "CT": { "LCAs":7441, "fillKey":2},
+			  "DC": { "LCAs":3682, "fillKey":2},
+			  "DE": { "LCAs":3170, "fillKey":2},
+			  "FL": { "LCAs":15264, "fillKey":3},
+			  "GA": { "LCAs":13983, "fillKey":3},
+			  "HI": { "LCAs":615, "fillKey":1},
+			  "IA": { "LCAs":2604, "fillKey":1},
+			  "ID": { "LCAs":635, "fillKey":1},
+			  "IL": { "LCAs":24493, "fillKey":3},
+			  "IN": { "LCAs":4270, "fillKey":2},
+			  "KS": { "LCAs":2231, "fillKey":1},
+			  "KY": { "LCAs":1885, "fillKey":1},
+			  "LA": { "LCAs":1660, "fillKey":1},
+			  "MA": { "LCAs":16884, "fillKey":3},
+			  "MD": { "LCAs":8124, "fillKey":2},
+			  "ME": { "LCAs":672, "fillKey":1},
+			  "MI": { "LCAs":11529, "fillKey":2},
+			  "MN": { "LCAs":7189, "fillKey":2},
+			  "MO": { "LCAs":4987, "fillKey":2},
+			  "MS": { "LCAs":668, "fillKey":1},
+			  "MT": { "LCAs":156, "fillKey":1},
+			  "NC": { "LCAs":11664, "fillKey":3},
+			  "ND": { "LCAs":469, "fillKey":1},
+			  "NE": { "LCAs":1388, "fillKey":1},
+			  "NH": { "LCAs":1557, "fillKey":1},
+			  "NJ": { "LCAs":29774, "fillKey":3},
+			  "NM": { "LCAs":854, "fillKey":1},
+			  "NV": { "LCAs":1119, "fillKey":1},
+			  "NY": { "LCAs":42522, "fillKey":3},
+			  "OH": { "LCAs":11637, "fillKey":3},
+			  "OK": { "LCAs":1575, "fillKey":1},
+			  "OR": { "LCAs":3711, "fillKey":2},
+			  "PA": { "LCAs":16769, "fillKey":3},
+			  "RI": { "LCAs":1792, "fillKey":1},
+			  "SC": { "LCAs":1671, "fillKey":1},
+			  "SD": { "LCAs":261, "fillKey":1},
+			  "TN": { "LCAs":4264, "fillKey":2},
+			  "TX": { "LCAs":42179, "fillKey":3},
+			  "UT": { "LCAs":1942, "fillKey":1},
+			  "VA": { "LCAs":13113, "fillKey":3},
+			  "VT": { "LCAs":262, "fillKey":1},
+			  "WA": { "LCAs":15489, "fillKey":3},
+			  "WI": { "LCAs":5048, "fillKey":2},
+			  "WV": { "LCAs":518, "fillKey":1},
+			  "WY": { "LCAs":127, "fillKey":1}
+			}
+
+	});
+
+
+	map.legend({
+		labels: {
+			1: 'lowest',
+			2: ' ',
+			3: ' ',
+			4: 'highest'
+		}
+	});
+
+
+</script>
+</body>
+</html>
